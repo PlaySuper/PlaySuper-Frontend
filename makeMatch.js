@@ -12,7 +12,7 @@ $(document).ready(function () {
   const playerFields = $('.players');
 
   $('#submit-match').on('click', function (e) {
-    e.preventDefault();
+    // e.preventDefault();
 
 		const game = $('#game').val();
   	const timeOfStart = $('#timeOfStart').val();
