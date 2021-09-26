@@ -9,9 +9,9 @@ $(document).ready(function () {
     e.preventDefault();
 
     const name = $("#name").val();
-    const credits = $("#credits").val();
-    const ACS = $("#acs").val();
-    const KDRatio = $("#kdratio").val();
+    const credits = parseInt($("#credits").val());
+    const ACS = parseInt($("#acs").val());
+    const KDRatio = parseInt($("#kdratio").val());
     const teamName = $("#teamName").val();
     const totalGamesPlayed = 0;
 

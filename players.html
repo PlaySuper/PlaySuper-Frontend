@@ -19,8 +19,8 @@
         <a href="#" class="logo">LOGO</a>
         <ul class="nav-links">
           <a href=""><li class="nav-link">Sign Up</li></a>
-          <a href=""><li class="nav-link">Scoring</li></a>
-          <a href=""><li class="nav-link">Players</li></a>
+          <a href="./score.html"><li class="nav-link">Scoring</li></a>
+          <a href="./players.html"><li class="nav-link">Players</li></a>
           <a href="./index.html"><li class="nav-link">Matches</li></a>
         </ul>
       </nav>
@@ -31,11 +31,11 @@
         <form method="POST">
             <div class="newplayer-container">
                 <h3>Player Details</h3>
-                <input type="text" id="name" name="name" placeholder="Player Name" />
-                <input type="number" id="credits" name="credits" placeholder="Credits" min="0"/>
-                <input type="number" id="acs" name="ACS" placeholder="Average Combat Score" min="0"/>
-                <input type="number" id="kdratio" name="kdratio" placeholder="K/D Ratio" min="0" />
-                <input type="text" id="teamName" name="teamName" placeholder="Team Name" />
+                <input type="text" id="name" name="name" placeholder="Player Name" required/>
+                <input type="number" id="credits" name="credits" placeholder="Credits" min="0" required/>
+                <input type="number" id="acs" name="ACS" placeholder="Average Combat Score" min="0" required/>
+                <input type="number" id="kdratio" name="kdratio" placeholder="K/D Ratio" min="0" required/>
+                <input type="text" id="teamName" name="teamName" placeholder="Team Name" required/>
             </div>
             <input type="button" value="Add Player" id="submit-player" />
         </form>

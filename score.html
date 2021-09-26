@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="./public/CSS/stylesheet.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap"
+    rel="stylesheet">
+  <title>Match Making</title>
+</head>
+
+<body>
+  <!-- Navbar -->
+  <nav>
+    <a href="#" class="logo">LOGO</a>
+    <ul class="nav-links">
+      <a href=""><li class="nav-link">Sign Up</li></a>
+      <a href="./score.html"><li class="nav-link">Scoring</li></a>
+      <a href="./players.html"><li class="nav-link">Players</li></a>
+      <a href="./index.html"><li class="nav-link">Matches</li></a>
+    </ul>
+  </nav>
+
+  <!-- FORM START HERE -->
+  <section class="container">
+    <h2>Calculate Score</h2>
+    <form method="POST">
+      <div class="game-container">
+        <h3>Game Details</h3>
+        <input type="text" id="matchID" name="matchID" placeholder="Match ID" required/>
+        <input type="text" id="mvp" name="mvp" placeholder="Match MVP" required/>
+        <input type="text" id="winner" name="winner" placeholder="Winning Team" required/>
+      </div>
+
+      <div class="player-container">
+        <h3>Players</h3>
+        <div class="scores">
+          <input type="text" class="player" id="name1" name="p1" placeholder="Player 1 Name" />
+          <input type="number" class="kills" id="kills1" name="kills1" placeholder="Player 1 Kills" required/>
+          <input type="number" id="assists1" name="assists1" placeholder="Player 1 Assists" required/>
+
+          <input type="text" class="player" id="name2" name="p2" placeholder="Player 2 Name" />
+          <input type="number" class="kills" id="kills2" name="kills2" placeholder="Player 2 Kills" required/>
+          <input type="number" id="assists2" name="assists2" placeholder="Player 2 Assists" required/>
+
+          <input type="text" class="player" id="name3" name="p3" placeholder="Player 3 Name" />
+          <input type="number" class="kills" id="kills3" name="kills3" placeholder="Player 3 Kills" required/>
+          <input type="number" id="assists3" name="assists3" placeholder="Player 3 Assists" required/>
+
+          <input type="text" class="player" id="name4" name="p4" placeholder="Player 4 name" />
+          <input type="number" class="kills" id="kills4" name="kills4" placeholder="Player 4 Kills" required/>
+          <input type="number" id="assists4" name="assists4" placeholder="Player 4 Assists" required/>
+
+          <input type="text" class="player" id="name5" name="p5" placeholder="Player 5 Name" />
+          <input type="number" class="kills" id="kills5" name="kills5" placeholder="Player 5 Kills" required/>
+          <input type="number" id="assists5" name="assists5" placeholder="Player 5 Assists" required/>
+          
+          <input type="text" class="player" id="name6" name="p6" placeholder="Player 6 Name" />
+          <input type="number" class="kills" id="kills6" name="kills1" placeholder="Player 6 Kills" required/>
+          <input type="number" id="assists6" name="assists6" placeholder="Player 6 Assists" required/>
+
+          <input type="text" class="player" id="name7" name="p7" placeholder="Player 7 Name" />
+          <input type="number" class="kills" id="kills7" name="kills1" placeholder="Player 7 Kills" required/>
+          <input type="number" id="assists7" name="assists7" placeholder="Player 7 Assists" required/>
+
+          <input type="text" class="player" id="name8" name="p8" placeholder="Player 8 Name" />
+          <input type="number" class="kills" id="kills8" name="kills8" placeholder="Player 8 Kills" required/>
+          <input type="number" id="assists8" name="assists8" placeholder="Player 8 Assists" required/>
+
+          <input type="text" class="player" id="name9" name="p9" placeholder="Player 9 Name" />
+          <input type="number" class="kills" id="kills9" name="kills9" placeholder="Player 9 Kills" required/>
+          <input type="number" id="assists9" name="assists9" placeholder="Player 9 Assists" required/>
+
+          <input type="text" class="player" id="name10" name="p10" placeholder="Player 10 Name" />
+          <input type="number" class="kills" id="kills10" name="kills10" placeholder="Player 10 Kills" required/>
+          <input type="number" id="assists10" name="assists10" placeholder="Player 10 Assists" required/>
+        </div>
+      </div>
+      <input type="button" value="Calculate Score" id="submit-score" />
+    </form>
+  </section>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"
+        integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg=="
+        crossorigin="anonymous"></script>
+  <script src="./public/JS/calcScore.js"></script>
+</body>
+
+</html>
