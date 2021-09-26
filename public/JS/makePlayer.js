@@ -25,7 +25,6 @@ $(document).ready(function () {
     };
 
     let json = JSON.stringify(data);
-    console.log(json);
 
     let requestOptions = {
       method: "POST",
@@ -36,7 +35,6 @@ $(document).ready(function () {
     fetch(url, requestOptions)
       .then((response) => response.json())
       .then((result) => {
-        console.log(result);
       });
   });
 });
