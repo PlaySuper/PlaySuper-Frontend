@@ -1,6 +1,7 @@
 $(document).ready(function () {
-  
   const url = `https://playsuper.herokuapp.com/calculateScore`;
+  $(".overlay").hide();
+  $(".spinner").hide();
 
   let myHeaders = new Headers();
   myHeaders.append("Content-Type", "application/json");
@@ -10,6 +11,9 @@ $(document).ready(function () {
 
   $("#submit-score").on("click", function (e) {
     e.preventDefault();
+
+    $(".overlay").show();
+    $(".spinner").show();
 
     const matchID = $("#matchID").val();
     const mvp = $("#mvp").val();
@@ -55,7 +59,19 @@ $(document).ready(function () {
     fetch(url, requestOptions)
       .then((response) => response.json())
       .then((result) => {
+        $(".overlay").hide();
+        $(".spinner").hide();
         console.log(result);
+        if (result.status == "failure")
+          swal("Oops something went wrong", "" + result.error, "error");
+        else {
+          swal("Score calculated and added!", "You're all set!", "success");
+          $("form").trigger("reset");
+        }
+      })
+      .catch((e) => {
+        swal("Oops something went wrong", "" + e, "error");
+        console.log(e);
       });
   });
 });
