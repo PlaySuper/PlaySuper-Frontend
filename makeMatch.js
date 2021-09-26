@@ -57,6 +57,7 @@ $(document).ready(function () {
     };
 
     let json = JSON.stringify(data);
+    console.log(json);
 
     let requestOptions = {
       method: 'POST',
