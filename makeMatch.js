@@ -68,6 +68,7 @@ $(document).ready(function () {
       .then((response) => response.json())
       .then((result) => {
         console.log(result);
+        location.reload();
       });
   });
 });
