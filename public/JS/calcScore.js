@@ -1,7 +1,26 @@
+const playersBlock = $(".scores");
+
+function createPlayersDiv(players) {
+  let output = ``;
+  let i = 1;
+
+  players.forEach(player => {
+      output += `
+      <input type="text" class="player" id="name${i}" name="p${i}" value="${player}" readonly/>
+      <input type="number" class="kills" id="kills${i}" name="kills${i}" placeholder="Player ${i} Kills" min="0" required/>
+      <input type="number" id="assists${i}" name="assists${i}" placeholder="Player ${i} Assists" min="0" required/>`;
+      i += 1;
+  });
+
+  playersBlock.empty();
+  playersBlock.html(output);
+}
+
 $(document).ready(function () {
-  const url = `https://playsuper.herokuapp.com/calculateScore`;
   $(".overlay").hide();
   $(".spinner").hide();
+  $("#submit-score").hide();
+  $(".player-container").hide();
 
   let myHeaders = new Headers();
   myHeaders.append("Content-Type", "application/json");
@@ -9,12 +28,47 @@ $(document).ready(function () {
 
   const scoreFields = $(".scores");
 
+  $('#fetch-match').on("click", function(e) {
+    e.preventDefault();
+
+    $(".overlay").show();
+    $(".spinner").show();
+
+    const matchID = $("#matchID").val();
+    const url = `https://playsuper.herokuapp.com/players/match/${matchID}`;
+
+    let requestOptions = {
+      method: "GET",
+      headers: myHeaders
+    };
+
+    fetch(url, requestOptions)
+      .then((response) => response.json())
+      .then((result) => {
+        $(".overlay").hide();
+        $(".spinner").hide();
+        
+        if (result.status == "failure")
+          swal("Oops something went wrong", "" + result.error, "error");
+        else{
+          createPlayersDiv(result.data.players);
+          $("#submit-score").show();
+          $(".player-container").show();
+        }
+      })
+      .catch((e) => {
+        swal("Oops something went wrong", "" + e, "error");
+        console.log(e);
+      });
+  });
+
   $("#submit-score").on("click", function (e) {
     e.preventDefault();
 
     $(".overlay").show();
     $(".spinner").show();
 
+    const url = `https://playsuper.herokuapp.com/calculateScore`;
     const matchID = $("#matchID").val();
     const mvp = $("#mvp").val();
     const winner = $("#winner").val();

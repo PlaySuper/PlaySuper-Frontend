@@ -97,6 +97,7 @@ input:hover {
 }
 
 .game-container {
+  min-width: 500px;
   display: flex;
   align-items: flex-start;
   justify-content: flex-start;
@@ -131,7 +132,7 @@ input:hover {
   transition: 0.3s;
 }
 
-#submit-match:hover {
+#submit-match:hover, #submit-player:hover, #submit-score:hover {
   background-color: #6362c0;
 }
 
@@ -148,6 +149,26 @@ input:hover {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 5px;
+}
+
+#fetch-match{
+  width: 50%;
+  padding: 10px;
+  font-size: 18px;
+  color: #fff;
+  margin: auto auto;
+  margin-top: 10px;
+  font-weight: 500;
+  background-color: #908fda;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  outline: transparent;
+  transition: 0.3s;
+}
+
+#fetch-match:hover {
+  background-color: #6362c0;
 }
 
 /* SPINNER */
