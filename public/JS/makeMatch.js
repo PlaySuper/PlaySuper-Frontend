@@ -75,7 +75,7 @@ $(document).ready(function () {
         $(".spinner").hide();
         console.log(result);
         if (result.status == "failure")
-          swal("Oops something went wrong", "" + result.error, "error");
+          swal("Oops something went wrong: ", "" + result.message, "error");
         else {
           swal("Match added!", "You're all set!", "success");
           $("form").trigger("reset");
