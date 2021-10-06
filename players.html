@@ -2,53 +2,57 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./public/CSS/stylesheet.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap"
-        rel="stylesheet" />
-    <title>Add Players</title>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link rel="stylesheet" href="./public/CSS/stylesheet.css" />
+	<link rel="preconnect" href="https://fonts.googleapis.com" />
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap"
+		rel="stylesheet" />
+	<link rel="icon" href="./public/assets/logo-round.png" type="image/x-icon" />
+	<title>Add Players</title>
 </head>
 
 <body>
-    <!-- loaders -->
-    <div class="overlay"></div>
-    <div class="spinner"><img src="./public/assets/loader.gif" alt=""></div>
+	<!-- loaders -->
+	<div class="overlay"></div>
+	<div class="spinner"><img src="./public/assets/loader.gif" alt=""></div>
 
-    <!-- Navbar -->
-    <nav>
-        <a href="#" class="logo">LOGO</a>
-        <ul class="nav-links">
-          <a href=""><li class="nav-link">Sign Up</li></a>
-          <a href="./score.html"><li class="nav-link">Scoring</li></a>
-          <a href="./players.html"><li class="nav-link">Players</li></a>
-          <a href="./index.html"><li class="nav-link">Matches</li></a>
-        </ul>
-      </nav>
+	<!-- Navbar -->
+	<nav>
+    <a href="./index.html" class="logo">
+    	<img src="./public/assets/logo.png" alt="LOGO" height="70px">
+    	<p>PlaySuper</p>
+  	</a>
+    <ul class="nav-links">
+      <a href=""><li class="nav-link">Sign Up</li></a>
+      <a href="./score.html"><li class="nav-link">Scoring</li></a>
+      <a href="./players.html"><li class="nav-link">Players</li></a>
+      <a href="./index.html"><li class="nav-link">Matches</li></a>
+    </ul>
+  </nav>
 
-    <!-- FORM START HERE -->
-    <section class="container">
-        <h2>Add New Player</h2>
-        <form method="POST">
-            <div class="newplayer-container">
-                <h3>Player Details</h3>
-                <input type="text" id="name" name="name" placeholder="Player Name" required/>
-                <input type="number" id="credits" name="credits" placeholder="Credits" min="0" required/>
-                <input type="number" id="acs" name="ACS" placeholder="Average Combat Score" min="0" required/>
-                <input type="number" id="kdratio" name="kdratio" placeholder="K/D Ratio" min="0" required/>
-                <input type="text" id="teamName" name="teamName" placeholder="Team Name" required/>
-            </div>
-            <input type="button" value="Add Player" id="submit-player" />
-        </form>
-    </section>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"
-        integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg=="
-        crossorigin="anonymous"></script>
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-    <script src="./public/JS/makePlayer.js"></script>
+	<!-- FORM START HERE -->
+	<section class="container">
+		<h2>Add New Player</h2>
+		<form method="POST">
+			<div class="newplayer-container">
+				<h3>Player Details</h3>
+				<input type="text" id="name" name="name" placeholder="Player Name" required />
+				<input type="number" id="credits" name="credits" placeholder="Credits" min="0" required />
+				<input type="number" id="acs" name="ACS" placeholder="Average Combat Score" min="0" required />
+				<input type="number" id="kdratio" name="kdratio" placeholder="K/D Ratio" min="0" required />
+				<input type="text" id="teamName" name="teamName" placeholder="Team Name" required />
+			</div>
+			<input type="button" value="Add Player" id="submit-player" />
+		</form>
+	</section>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"
+		integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg=="
+		crossorigin="anonymous"></script>
+	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+	<script src="./public/JS/makePlayer.js"></script>
 </body>
 
 </html>

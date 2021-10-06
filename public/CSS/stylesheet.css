@@ -26,6 +26,17 @@ nav {
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
 }
 
+.logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo p {
+  font-weight: 600;
+  font-size: 24px;
+}
+
 .nav-links {
   display: flex;
   align-items: center;
@@ -108,16 +119,13 @@ input:hover {
   width: 100%;
 }
 
-.players,
-.subpool {
+.players, .subpool {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 5px;
 }
 
-#submit-match,
-#submit-player,
-#submit-score {
+#submit-match, #submit-player, #submit-score {
   width: 100%;
   padding: 10px;
   font-size: 18px;
@@ -137,6 +145,7 @@ input:hover {
 }
 
 /* players.html */
+
 .newplayer-container input {
   display: flex;
   flex-direction: column;
@@ -145,13 +154,14 @@ input:hover {
 }
 
 /* score.html */
+
 .scores {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 5px;
 }
 
-#fetch-match{
+#fetch-match {
   width: 50%;
   padding: 10px;
   font-size: 18px;
