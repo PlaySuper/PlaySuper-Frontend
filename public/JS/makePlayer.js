@@ -14,17 +14,21 @@ $(document).ready(function () {
     $(".spinner").show();
 
     const name = $("#name").val();
-    const credits = parseInt($("#credits").val());
     const ACS = parseInt($("#acs").val());
     const KDRatio = parseInt($("#kdratio").val());
+    const kills = parseInt($("#kills").val());
+    const deaths = parseInt($("#deaths").val());
+    const assists = parseInt($("#assists").val());
     const teamName = $("#teamName").val();
     const totalGamesPlayed = 0;
 
     const data = {
       name,
-      credits,
       ACS,
       KDRatio,
+      kills,
+      deaths,
+      assists,
       teamName,
       totalGamesPlayed,
     };
