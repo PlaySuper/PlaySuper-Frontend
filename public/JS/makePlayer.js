@@ -15,7 +15,7 @@ $(document).ready(function () {
 
     const name = $("#name").val();
     const ACS = parseInt($("#acs").val());
-    const KDRatio = parseInt($("#kdratio").val());
+    const KDRatio = parseFloat($("#kdratio").val());
     const kills = parseInt($("#kills").val());
     const deaths = parseInt($("#deaths").val());
     const assists = parseInt($("#assists").val());
