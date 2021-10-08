@@ -161,7 +161,7 @@ input:hover {
   gap: 5px;
 }
 
-#fetch-match {
+#fetch-match, #fetch-players {
   width: 50%;
   padding: 10px;
   font-size: 18px;

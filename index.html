@@ -44,6 +44,7 @@
         <input type="number" id="timeOfStart" name="timeOfStart" placeholder="Time of Start" required />
         <input type="text" id="teamA" name="teamA" placeholder="Team A" required />
         <input type="text" id="teamB" name="teamB" placeholder="Team B" required />
+        <input type="button" id="fetch-players" value="Fetch Players" />
       </div>
 
       <div class="subpool-container">
@@ -60,30 +61,9 @@
         </div>
       </div>
 
-      <div class="player-container">
+      <div class="player-cred-container">
         <h3>Players</h3>
-        <div class="players">
-          <input type="text" class="player" id="name1" name="p1" placeholder="Player 1 Name" required />
-          <input type="number" id="credits1" name="credits1" placeholder="Player 1 Credits" min="0" required />
-          <input type="text" class="player" id="name2" name="p2" placeholder="Player 2 Name" required />
-          <input type="number" id="credits2" name="credits2" placeholder="Player 2 Credits" min="0" required />
-          <input type="text" class="player" id="name3" name="p3" placeholder="Player 3 Name" required />
-          <input type="number" id="credits3" name="credits3" placeholder="Player 3 Credits" min="0" required />
-          <input type="text" class="player" id="name4" name="p4" placeholder="Player 4 name" required />
-          <input type="number" id="credits4" name="credits4" placeholder="Player 4 Credits" min="0" required />
-          <input type="text" class="player" id="name5" name="p5" placeholder="Player 5 Name" required />
-          <input type="number" id="credits5" name="credits5" placeholder="Player 5 Credits" min="0" required />
-          <input type="text" class="player" id="name6" name="p1" placeholder="Player 6 Name" required />
-          <input type="number" id="credits6" name="credits1" placeholder="Player 6 Credits" min="0" required />
-          <input type="text" class="player" id="name7" name="p1" placeholder="Player 7 Name" required />
-          <input type="number" id="credits7" name="credits1" placeholder="Player 7 Credits" min="0" required />
-          <input type="text" class="player" id="name8" name="p1" placeholder="Player 8 Name" required />
-          <input type="number" id="credits8" name="credits1" placeholder="Player 8 Credits" min="0" required />
-          <input type="text" class="player" id="name9" name="p1" placeholder="Player 9 Name" required />
-          <input type="number" id="credits9" name="credits1" placeholder="Player 9 Credits" min="0" required />
-          <input type="text" class="player" id="name10" name="p1" placeholder="Player 10 Name" required />
-          <input type="number" id="credits10" name="credits1" placeholder="Player 10 Credits" min="0" required />
-        </div>
+        <div class="players"></div>
       </div>
       <input type="button" value="Add Match" id="submit-match" />
     </form>
