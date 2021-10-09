@@ -5,11 +5,11 @@ function createTeamPlayerDiv(teamA, teamB, length) {
   let output = ``;
 
   const fullPlayers = teamA.concat(teamB);
-  
+
   for (let i = 0; i < length; i++) {
     output += `
-      <input type="text" class="player" id="name${i+1}" value="${fullPlayers[i].name}" readonly/>
-      <input type="number" id="credits${i+1}" placeholder="Player ${i+1} Credits" min="0" required />`;
+      <input type="text" class="player" id="name${i + 1}" value="${fullPlayers[i].name}" readonly/>
+      <input type="number" id="credits${i + 1}" placeholder="Player ${i + 1} Credits" min="0" required />`;
   }
 
   playerFields.empty();
@@ -28,8 +28,6 @@ $(document).ready(function () {
   myHeaders.append("Content-Type", "application/json");
   myHeaders.append("Access-Control-Allow-Origin", "*");
 
-  const subpoolFields = $(".subpool");
-
   $('#fetch-players').on("click", function (e) {
     e.preventDefault();
 
@@ -39,51 +37,51 @@ $(document).ready(function () {
     const teamA = $("#teamA").val();
     const teamB = $("#teamB").val();
 
-    if (teamA && teamB){
-    const urlA = `https://playsuper.herokuapp.com/player/${teamA}`;
-    const urlB = `https://playsuper.herokuapp.com/player/${teamB}`;
+    if (teamA && teamB) {
+      const urlA = `https://playsuper.herokuapp.com/player/${teamA}`;
+      const urlB = `https://playsuper.herokuapp.com/player/${teamB}`;
 
-    let requestOptions = {
-      method: "GET",
-      headers: myHeaders
-    };
+      let requestOptions = {
+        method: "GET",
+        headers: myHeaders
+      };
 
-    fetch(urlA, requestOptions)
-      .then((responseA) => responseA.json())
-      .then((resultA) => {
-        $(".overlay").hide();
-        $(".spinner").hide();
+      fetch(urlA, requestOptions)
+        .then((responseA) => responseA.json())
+        .then((resultA) => {
+          $(".overlay").hide();
+          $(".spinner").hide();
 
-        if (resultA.status == "failure")
-          swal("Oops something went wrong", "" + resultA.error, "error");
-        else {
-          fetch(urlB, requestOptions)
-            .then((responseB) => responseB.json())
-            .then((resultB) => {
-              $(".overlay").hide();
-              $(".spinner").hide();
+          if (resultA.status == "failure")
+            swal("Oops something went wrong", "" + resultA.error, "error");
+          else {
+            fetch(urlB, requestOptions)
+              .then((responseB) => responseB.json())
+              .then((resultB) => {
+                $(".overlay").hide();
+                $(".spinner").hide();
 
-              if (resultB.status == "failure")
-                swal("Oops something went wrong", "" + resultB.error, "error");
-              else {
-                createTeamPlayerDiv(resultA.players, resultB.players, resultA.length + resultB.length);
-                $("#submit-match").show();
-              }
-            })
-            .catch((e2) => {
-              swal("Oops something went wrong", "" + e2, "error");
-              console.log(e2);
-            });
-        }
-      })
-      .catch((e1) => {
-        swal("Oops something went wrong", "" + e1, "error");
-        console.log(e1);
-      });
+                if (resultB.status == "failure")
+                  swal("Oops something went wrong", "" + resultB.error, "error");
+                else {
+                  createTeamPlayerDiv(resultA.players, resultB.players, resultA.length + resultB.length);
+                  $("#submit-match").show();
+                }
+              })
+              .catch((e2) => {
+                swal("Oops something went wrong", "" + e2, "error");
+                console.log(e2);
+              });
+          }
+        })
+        .catch((e1) => {
+          swal("Oops something went wrong", "" + e1, "error");
+          console.log(e1);
+        });
     } else {
       swal("Please fill the team fields", "Check the teamA and teamB fields");
       $(".overlay").hide();
-        $(".spinner").hide();
+      $(".spinner").hide();
     }
   });
 
@@ -93,7 +91,11 @@ $(document).ready(function () {
     const entryFee = [];
     const prizePool = [];
     const players = [];
+    const winnings = [];
     e.preventDefault();
+
+    const subpoolFields = $(".subpool");
+    const winningFields = $(".winning_subpool");
 
     const game = $("#game").val();
     const timeOfStart = $("#timeOfStart").val();
@@ -101,11 +103,24 @@ $(document).ready(function () {
     const teamB = $("#teamB").val();
     const tournament = $("#tournament").val();
 
+    let winArrLen = 0;
+    let winArray = [];
+
     subpoolFields.children("input").each(function () {
       if ($(this).hasClass("prize")) {
         prizePool.push(parseInt($(this).val()));
-      } else {
+      } else if ($(this).hasClass("entry")) {
         entryFee.push(parseInt($(this).val()));
+      }
+    });
+
+    winningFields.children("input").each(function () {
+      winArray.push(parseInt($(this).val()));
+      winArrLen += 1
+      if (winArrLen == 7) {
+        winnings.push({ amounts: winArray });
+        winArrLen = 0;
+        winArray = []
       }
     });
 
@@ -129,6 +144,7 @@ $(document).ready(function () {
     const data = {
       prizePool,
       entryFee,
+      winnings,
       game,
       tournament,
       timeOfStart,
@@ -136,6 +152,8 @@ $(document).ready(function () {
       teamB,
       players,
     };
+
+    console.log(data);
 
     let json = JSON.stringify(data);
 

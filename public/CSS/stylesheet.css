@@ -119,10 +119,29 @@ input:hover {
   width: 100%;
 }
 
-.players, .subpool {
+.players {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 5px;
+}
+
+.subpool {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #000;
+  padding-bottom: 10px;
+}
+
+.winning_subpool {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 5px;
+  margin-left: 10px;
+}
+
+.winning_subpool input {
+  width: 120px;
 }
 
 #submit-match, #submit-player, #submit-score {
