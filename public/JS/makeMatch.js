@@ -101,6 +101,8 @@ $(document).ready(function () {
     const timeOfStart = $("#timeOfStart").val();
     const teamA = $("#teamA").val();
     const teamB = $("#teamB").val();
+    const teamAUrl = $("#teamAUrl").val();
+    const teamBUrl = $("#teamBUrl").val();
     const tournament = $("#tournament").val();
 
     let winArrLen = 0;
@@ -150,6 +152,8 @@ $(document).ready(function () {
       timeOfStart,
       teamA,
       teamB,
+      teamAUrl,
+      teamBUrl,
       players,
     };
 
