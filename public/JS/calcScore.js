@@ -5,15 +5,41 @@ function createPlayersDiv(players) {
   let i = 1;
 
   players.forEach(player => {
-      output += `
+    output += `
       <input type="text" class="player" id="name${i}" name="p${i}" value="${player}" readonly/>
       <input type="number" class="kills" id="kills${i}" name="kills${i}" placeholder="Player ${i} Kills" min="0" required/>
       <input type="number" id="assists${i}" name="assists${i}" placeholder="Player ${i} Assists" min="0" required/>`;
-      i += 1;
+    i += 1;
   });
 
   playersBlock.empty();
   playersBlock.html(output);
+}
+
+function creditWinningsToWallet(matchID) {
+  const url = `https://playsuper.herokuapp.com/amount/${matchID}`;
+
+  let requestOptions = {
+    method: "GET",
+    headers: myHeaders
+  };
+
+  fetch(url, requestOptions)
+    .then((response) => response.json())
+    .then((result) => {
+      $(".overlay").hide();
+      $(".spinner").hide();
+
+      if (result.status == "failure")
+        swal("Oops something went wrong", "" + result.error, "error");
+      else {
+
+      }
+    })
+    .catch((e) => {
+      swal("Oops something went wrong", "" + e, "error");
+      console.log(e);
+    });
 }
 
 $(document).ready(function () {
@@ -28,7 +54,7 @@ $(document).ready(function () {
 
   const scoreFields = $(".scores");
 
-  $('#fetch-match').on("click", function(e) {
+  $('#fetch-match').on("click", function (e) {
     e.preventDefault();
 
     $(".overlay").show();
@@ -47,10 +73,10 @@ $(document).ready(function () {
       .then((result) => {
         $(".overlay").hide();
         $(".spinner").hide();
-        
+
         if (result.status == "failure")
           swal("Oops something went wrong", "" + result.error, "error");
-        else{
+        else {
           createPlayersDiv(result.data.players);
           $("#submit-score").show();
           $(".player-container").show();
@@ -113,12 +139,11 @@ $(document).ready(function () {
     fetch(url, requestOptions)
       .then((response) => response.json())
       .then((result) => {
-        $(".overlay").hide();
-        $(".spinner").hide();
         console.log(result);
         if (result.status == "failure")
           swal("Oops something went wrong: ", "" + result.message, "error");
         else {
+          creditWinningsToWallet(matchID);
           swal("Score calculated and added!", "You're all set!", "success");
           $("form").trigger("reset");
         }
