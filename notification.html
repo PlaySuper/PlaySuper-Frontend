@@ -11,7 +11,7 @@
 	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap"
 		rel="stylesheet" />
 	<link rel="icon" href="./public/assets/logo-round.png" type="image/x-icon" />
-	<title>Add Players</title>
+	<title>Notification</title>
 </head>
 
 <body>
@@ -26,7 +26,7 @@
     	<p>PlaySuper</p>
   	</a>
     <ul class="nav-links">
-	  	<a href="./notification.html"><li class="nav-link">Notification</li></a>
+      <a href="./notification.html"><li class="nav-link">Notification</li></a>
       <a href="./score.html"><li class="nav-link">Scoring</li></a>
       <a href="./players.html"><li class="nav-link">Players</li></a>
       <a href="./index.html"><li class="nav-link">Matches</li></a>
@@ -35,26 +35,20 @@
 
 	<!-- FORM START HERE -->
 	<section class="container">
-		<h2>Add New Player</h2>
+		<h2>Send Notification</h2>
 		<form method="POST">
-			<div class="newplayer-container">
-				<h3>Player Details</h3>
-				<input type="text" id="name" name="name" placeholder="Player Name" required />
-				<input type="number" id="acs" name="ACS" placeholder="Average Combat Score" min="0" required />
-				<input type="number" id="kdratio" name="kdratio" placeholder="K/D Ratio" min="0" required />
-				<input type="number" id="kills" name="Kills" placeholder="Kills" min="0" required />
-				<input type="number" id="deaths" name="Deaths" placeholder="Deaths" min="0" required />
-				<input type="number" id="assists" name="Assists" placeholder="Assists" min="0" required />
-				<input type="text" id="teamName" name="teamName" placeholder="Team Name" required />
+			<div class="notif-container">
+				<input type="text" id="notif-title" name="title" placeholder="Notification Title" required />
+				<input type="text" id="notif-body" name="body" placeholder="Notification Body" required />
 			</div>
-			<input type="button" value="Add Player" id="submit-player" />
+			<input type="button" value="Send Notification" id="submit-notif" />
 		</form>
 	</section>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"
 		integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg=="
 		crossorigin="anonymous"></script>
 	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-	<script src="./public/JS/makePlayer.js"></script>
+	<script src="./public/JS/sendNotification.js"></script>
 </body>
 
 </html>
