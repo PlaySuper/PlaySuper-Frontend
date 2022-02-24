@@ -19,6 +19,10 @@ function createPlayersDiv(players) {
 function creditWinningsToWallet(matchID) {
   const url = `https://playsuper.herokuapp.com/amount/${matchID}`;
 
+  let myHeaders = new Headers();
+  myHeaders.append("Content-Type", "application/json");
+  myHeaders.append("Access-Control-Allow-Origin", "*");
+
   let requestOptions = {
     method: "GET",
     headers: myHeaders
